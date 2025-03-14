@@ -38,22 +38,22 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Alpha keystore
-        run: |
-          echo "${{ secrets.ALPHA_KS_ASC }}" > alphaKeystore.jks.asc
-          gpg -d --passphrase "${{ secrets.ALPHA_KS_PASSPHRASE }}" --batch alphaKeystore.jks.asc > app/rdnsAlpha.jks
-          wc -wcl alphaKeystore.jks.asc app/rdnsAlpha.jks
+    #  - name: Alpha keystore
+    #    run: |
+    #      echo "${{ secrets.ALPHA_KS_ASC }}" > alphaKeystore.jks.asc
+    #     gpg -d --passphrase "${{ secrets.ALPHA_KS_PASSPHRASE }}" --batch alphaKeystore.jks.asc > app/rdnsAlpha.jks
+    #      wc -wcl alphaKeystore.jks.asc app/rdnsAlpha.jks
 
       - name: Build & notify 
        # if: env.TELEGRAM_CHAT_ID && env.SCHEDULED_BUILD_VARIANT && env.TELEGRAM_TOKEN
         run: |
           ./gradlew ${SCHEDULED_BUILD_VARIANT} --info --warning-mode all
         env:
-          ALPHA_KS_ALIAS: ${{ vars.ALPHA_KS_ALIAS }}
-          ALPHA_KS_FILE: ${{ vars.ALPHA_KS_FILE }}
-          ALPHA_KS_STORE_PASSPHRASE: ${{ secrets.ALPHA_KS_STORE_PASSPHRASE }}
-          ALPHA_KS_PASSPHRASE: ${{ secrets.ALPHA_KS_PASSPHRASE }}
-          VERSION_CODE: ${{ github.run_number }}
+     #     ALPHA_KS_ALIAS: ${{ vars.ALPHA_KS_ALIAS }}
+     #     ALPHA_KS_FILE: ${{ vars.ALPHA_KS_FILE }}
+     #     ALPHA_KS_STORE_PASSPHRASE: ${{ secrets.ALPHA_KS_STORE_PASSPHRASE }}
+     #     ALPHA_KS_PASSPHRASE: ${{ secrets.ALPHA_KS_PASSPHRASE }}
+     #     VERSION_CODE: ${{ github.run_number }}
           # version-code: archive.is/y8uCB
 
       - name: Grab APK
