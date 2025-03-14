@@ -45,7 +45,7 @@ jobs:
      #     wc -wcl alphaKeystore.jks.asc app/rdnsAlpha.jks
 
       - name: Build & notify 
-        if: env.TELEGRAM_CHAT_ID && env.SCHEDULED_BUILD_VARIANT && env.TELEGRAM_TOKEN
+       # if: env.TELEGRAM_CHAT_ID && env.SCHEDULED_BUILD_VARIANT && env.TELEGRAM_TOKEN
         run: |
           ./gradlew ${SCHEDULED_BUILD_VARIANT} --info --warning-mode all
         env:
@@ -77,7 +77,7 @@ jobs:
         with:
           prerelease: true
           files: |
-            ${{ env. APKFILE }}
+            ${{ env.APKFILE }}
  
       - name: Telegram
         run: |
