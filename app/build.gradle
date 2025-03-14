@@ -90,7 +90,7 @@ android {
         }
         alpha {
             // archive.is/y8uCB
-            applicationIdSuffix ".alpha"
+           // applicationIdSuffix ".alpha"
             minifyEnabled true
             shrinkResources true
           //  signingConfig signingConfigs.alpha
