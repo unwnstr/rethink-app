@@ -2,8 +2,11 @@ name: testBuild
 
 on:
   workflow_dispatch: # to be able to run it manually
-  schedule:
-    - cron: '53 21 27 * *' # on 27 every month
+  #schedule:
+  #  - cron: '53 21 27 * *' # on 27 every month
+  push:
+    tags:
+      - "v*.*.*"
 
 jobs:
   evaluateChanges:
