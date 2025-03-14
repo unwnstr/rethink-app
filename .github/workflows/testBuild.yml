@@ -53,7 +53,7 @@ jobs:
      #     ALPHA_KS_FILE: ${{ vars.ALPHA_KS_FILE }}
      #     ALPHA_KS_STORE_PASSPHRASE: ${{ secrets.ALPHA_KS_STORE_PASSPHRASE }}
      #     ALPHA_KS_PASSPHRASE: ${{ secrets.ALPHA_KS_PASSPHRASE }}
-     #     VERSION_CODE: ${{ github.run_number }}
+          VERSION_CODE: ${{ github.run_number }}
           # version-code: archive.is/y8uCB
 
       - name: Grab APK
