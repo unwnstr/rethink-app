@@ -1,4 +1,4 @@
-name: Monthly alpha
+name: testBuild
 
 on:
   workflow_dispatch: # to be able to run it manually
