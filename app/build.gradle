@@ -59,7 +59,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    signingConfigs {
+/*    signingConfigs {
         config {
             keyAlias keystoreProperties['keyAlias']
             keyPassword keystoreProperties['keyPassword']
@@ -74,7 +74,7 @@ android {
             storeFile file(String.valueOf(System.getenv("ALPHA_KS_FILE"))) // rdnsAlpha.jks in app/
             storePassword System.getenv("ALPHA_KS_STORE_PASSPHRASE")
         }
-    }
+    }*/
 
     buildTypes {
         release {
@@ -93,7 +93,7 @@ android {
             applicationIdSuffix ".alpha"
             minifyEnabled true
             shrinkResources true
-            signingConfig signingConfigs.alpha
+          //  signingConfig signingConfigs.alpha
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
