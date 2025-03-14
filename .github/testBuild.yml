@@ -38,14 +38,14 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-     # - name: Alpha keystore
-     #   run: |
-     #     echo "${{ secrets.ALPHA_KS_ASC }}" > alphaKeystore.jks.asc
-     #     gpg -d --passphrase "${{ secrets.ALPHA_KS_PASSPHRASE }}" --batch alphaKeystore.jks.asc > app/rdnsAlpha.jks
-     #     wc -wcl alphaKeystore.jks.asc app/rdnsAlpha.jks
+      - name: Alpha keystore
+        run: |
+          echo "${{ secrets.ALPHA_KS_ASC }}" > alphaKeystore.jks.asc
+          gpg -d --passphrase "${{ secrets.ALPHA_KS_PASSPHRASE }}" --batch alphaKeystore.jks.asc > app/rdnsAlpha.jks
+          wc -wcl alphaKeystore.jks.asc app/rdnsAlpha.jks
 
       - name: Build & notify 
-        if: env.TELEGRAM_CHAT_ID && env.SCHEDULED_BUILD_VARIANT && env.TELEGRAM_TOKEN
+     #   if: env.TELEGRAM_CHAT_ID && env.SCHEDULED_BUILD_VARIANT && env.TELEGRAM_TOKEN
         run: |
           ./gradlew ${SCHEDULED_BUILD_VARIANT} --info --warning-mode all
         env:
